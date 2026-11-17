@@ -456,7 +456,7 @@ function mountWish(d) {
   }
   if (d.msg) root.append(el('p', 'w-msg', d.msg));
   const nx2 = el('div', 'w-next'), nb = el('button', 'btn', '💌 Letter for you'); nb.id = 'wNext'; nb.onclick = () => openLetter(); nx2.append(nb); root.append(nx2);
-  const ft = el('div', 'w-foot'); ft.append('Made with ♥ by '); const a = el('a', null, 'Benadicts'); 
+  const ft = el('div', 'w-foot'); ft.append('Made with ♥ by '); const a = el('a', null, 'Benadicts'); a.href =  ft.append(a); root.append(ft);
 
 }
 function balloons(color, L, n) {
@@ -509,7 +509,7 @@ function openFinal() {
   s.innerHTML = '<div class="bl-layer"></div><div class="inner"><div class="fin-head"><h1 class="w-title"></h1><h2 class="w-name"></h2></div><div class="fin-cakes"></div><div class="w-foot"></div></div>';
   const nx = splitInto($('.w-title', s), d.final || 'Once again, Happy Birthday', 0); if (d.name) splitInto($('.w-name', s), d.name, nx + 2);
   const ck = $('.fin-cakes', s); for (let i = 0; i < 3; i++) { const c = el('div', 'fc'); c.innerHTML = cake(true); ck.append(c); }
-  const ft = $('.w-foot', s); ft.append('Made with ♥ by '); const a = el('a', null, 'Benadicts'); 
+  const ft = $('.w-foot', s); ft.append('Made with ♥ by '); const a = el('a', null, 'Benadicts'); a.href = location.pathname; ft.append(a);
   s.scrollTop = 0; s.classList.add('open');
   balloons(d.balloon, $('.bl-layer', s), 26);
   setTimeout(() => $('.fin-head', s).classList.add('go'), 900);
